@@ -90,9 +90,11 @@ after-success() {
       IFS='.' read -a BUILD_ARRAY <<< "$BUILD_VERSION"
       IFS='.' read -a DISCO_ARRAY <<< "$DISCO_TAG"
 
-      # Build and deploy packages only in the two scenarios
-      #   1. If our minor versions are the same and the tag patch version is larger
-      #   2. If this is a new minor version and that minor version is larger than previous minor versions
+      # Build and deploy packages only in the three scenarios
+      #   1. If this is a new minor version and that minor version is larger than previous minor versions
+      #   2. If this is prerelease version (2 === non-integer)
+      #   3. If our minor versions are the same and the tag patch version is larger
+      #
       if [ "${DISCO_ARRAY[1]}" -gt "${BUILD_ARRAY[1]}" ] ||
         ([ "${DISCO_ARRAY[1]}" -eq "${BUILD_ARRAY[1]}" ] && [ "${DISCO_ARRAY[2]}" -gt "${BUILD_ARRAY[2]}" ]); then
 
