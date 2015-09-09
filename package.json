@@ -8,7 +8,7 @@
     "pantheon",
     "wordpress"
   ],
-  "version": "0.10.0",
+  "version": "0.10.0-alpha.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kalabox/kalabox-plugin-pantheon.git"
